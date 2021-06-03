@@ -121,6 +121,18 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Entity\Dietician.cs" />
+    <Compile Include="Entity\Diets\Abstract\Diet.cs" />
+    <Compile Include="Entity\Diets\Concrete\GlutenFree.cs" />
+    <Compile Include="Entity\Diets\Concrete\Mediterranean.cs" />
+    <Compile Include="Entity\Diets\Concrete\SeaProducts.cs" />
+    <Compile Include="Entity\Diets\Concrete\WorldOfGreenery.cs" />
+    <Compile Include="Entity\Diseases\Abstract\IDisease.cs" />
+    <Compile Include="Entity\Diseases\Concrete\Celiac.cs" />
+    <Compile Include="Entity\Diseases\Concrete\Diabetes.cs" />
+    <Compile Include="Entity\Diseases\Concrete\Obese.cs" />
+    <Compile Include="Entity\IDiet.cs" />
+    <Compile Include="Entity\Patient.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -162,6 +174,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Deneme.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
