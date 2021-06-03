@@ -12,7 +12,8 @@ namespace WebUI.Entity
         public int Id { get; set; }
         public string Name { get; set; }
         public string TcNo { get; set; }
-        public IDisease disease { get; set; }
-        public Diet diet { get; set; }
+        public IDisease Disease { get; set; }
+        public Diet Diet { get; set; }
+        public int DieticianId { get; set; }
     }
 }

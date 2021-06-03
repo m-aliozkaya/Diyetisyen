@@ -7,5 +7,6 @@ namespace WebUI.Entity
 {
     public class Dietician
     {
+        public int Id { get; set; }
     }
 }
