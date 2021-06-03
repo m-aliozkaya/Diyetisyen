@@ -13,10 +13,15 @@ namespace WebUI.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Dietician()
         {
             ViewBag.Message = "Your application description page.";
 
+            return View();
+        }
+
+        public ActionResult Diets()
+        {
             return View();
         }
 
@@ -26,5 +31,7 @@ namespace WebUI.Controllers
 
             return View();
         }
+
+        
     }
 }
