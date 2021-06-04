@@ -121,7 +121,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Data\Claims.cs" />
     <Compile Include="Data\InMemory.cs" />
+    <Compile Include="Entity\Admin.cs" />
     <Compile Include="Entity\Dietician.cs" />
     <Compile Include="Entity\Diets\Abstract\Diet.cs" />
     <Compile Include="Entity\Diets\Concrete\GlutenFree.cs" />
@@ -133,11 +135,14 @@
     <Compile Include="Entity\Diseases\Concrete\Diabetes.cs" />
     <Compile Include="Entity\Diseases\Concrete\Obese.cs" />
     <Compile Include="Entity\IDiet.cs" />
+    <Compile Include="Entity\IUser.cs" />
     <Compile Include="Entity\Patient.cs" />
+    <Compile Include="Entity\User.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\UserManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />

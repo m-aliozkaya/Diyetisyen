@@ -7,13 +7,16 @@ using WebUI.Entity.Diseases.Abstract;
 
 namespace WebUI.Entity
 {
-    public class Patient
+    public class Patient:IUser
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public string TcNo { get; set; }
+        public string Password { get; set; }
+        public string UserName { get; set; }
         public IDisease Disease { get; set; }
         public Diet Diet { get; set; }
-        public int DieticianId { get; set; }
+        public Dietician Dietician { get; set; }
     }
 }

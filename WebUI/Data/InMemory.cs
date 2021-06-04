@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using WebUI.Entity;
 using WebUI.Entity.Diets.Abstract;
 using WebUI.Entity.Diets.Concrete;
@@ -11,12 +12,10 @@ namespace WebUI.Data
     {
         private static InMemory _inMemory;
         private static object _lockObject = new object();
-        private int patientsID = 0;
-        private int dieticiansID = 0;
-        private List<Patient> _patients;
+        private int userID = 0;
         private List<Diet> _diets;
-        private List<Dietician> _dieticians;
         private List<IDisease> _diseases;
+        private List<IUser> _users;
 
         public static InMemory Memory
         {
@@ -33,29 +32,35 @@ namespace WebUI.Data
             }
         }
 
-
-        public InMemory()
+        private InMemory()
         {
+            _users = new List<IUser>();
+            createDietician();
+            createDiseases();
             createPatients();
             createDiets();
-            createDiseases();
-            createDietician();
+            creatAdmins();
         }
 
         public void AddPatients(Patient patient)
         {
-            patient.Id = ++patientsID;
-            _patients.Add(patient);
+            patient.Id = ++userID;
+            _users.Add(patient);
         }
 
         public void AddDieticion(Dietician dietician)
         {
-            dietician.Id = ++dieticiansID;
-            _dieticians.Add(dietician);
+            dietician.Id = ++userID;
+            _users.Add(dietician);
+        }
+
+        public List<IUser> GetUsers()
+        {
+            return _users;
         }
         public List<Patient> GetPatients()
         {
-            return _patients;
+            return _users.Where(u => u.GetType() == typeof(Patient)).Cast<Patient>().ToList();
         }
 
         public List<Diet> GetDiets()
@@ -65,24 +70,25 @@ namespace WebUI.Data
 
         public List<Dietician> GetDieticians()
         {
-            return _dieticians;
+            return _users.Where(u => u.GetType() == typeof(Dietician)).Cast<Dietician>().ToList();
         }
         public List<IDisease> GetDiseases()
         {
             return _diseases;
         }
+
         private void createPatients()
         {
-            _patients = new List<Patient>();
-            _patients.Add(new Patient { Diet = new GlutenFree(), Disease = new Obese(), Id = ++patientsID, Name = "salih", TcNo = "1111",DieticianId = 1});
-            _patients.Add(new Patient { Diet = new Mediterranean(), Disease =new Celiac(), Id = ++patientsID, Name = "ali", TcNo = "1111", DieticianId = 2 });
-            _patients.Add(new Patient { Diet = new SeaProducts(), Disease = new Diabetes(), Id = ++patientsID, Name = "beyza", TcNo = "1111",DieticianId = 3 });
-            _patients.Add(new Patient { Diet = new WorldOfGreenery(), Disease = new Obese(), Id = ++patientsID, Name = "muhammed", TcNo = "1111",DieticianId = 1 });
-            _patients.Add(new Patient { Diet = new GlutenFree(), Disease = new Celiac(), Id = ++patientsID, Name = "ahmet", TcNo = "1111",DieticianId = 2 });
-            _patients.Add(new Patient { Diet = new WorldOfGreenery(), Disease = new Diabetes(), Id = ++patientsID, Name = "veli", TcNo = "1111" ,DieticianId = 3});
-            _patients.Add(new Patient { Diet = new GlutenFree(), Disease = new Obese(), Id = ++patientsID, Name = "eren", TcNo = "1111",DieticianId = 1 });
-            _patients.Add(new Patient { Diet = new SeaProducts(), Disease = new Celiac(), Id = ++patientsID, Name = "ayşe", TcNo = "1111",DieticianId = 2 });
-            _patients.Add(new Patient { Diet = new GlutenFree(), Disease = new Diabetes(), Id = ++patientsID, Name = "ali", TcNo = "1111", DieticianId = 3 });
+            List<Dietician> dietician = _users.Where(d => d.GetType() == typeof(Dietician)).Cast<Dietician>().ToList();
+            _users.Add(new Patient { Diet = new GlutenFree(), Disease = new Obese(), Id = ++userID, FirstName = "salih", TcNo = "1111", Dietician = dietician[0] ,Password = "12345",UserName = "salih"});
+            _users.Add(new Patient { Diet = new Mediterranean(), Disease = new Celiac(), Id = ++userID, FirstName = "ali", TcNo = "1111", Dietician = dietician[1], Password = "12345", UserName = "ali" });
+            _users.Add(new Patient { Diet = new SeaProducts(), Disease = new Diabetes(), Id = ++userID, FirstName = "beyza", TcNo = "1111", Dietician = dietician[2] ,Password = "12345",UserName = "beyza"});
+            _users.Add(new Patient { Diet = new WorldOfGreenery(), Disease = new Obese(), Id = ++userID, FirstName = "muhammed", TcNo = "1111", Dietician = dietician[0] ,Password = "12345",UserName = "muhammed"});
+            _users.Add(new Patient { Diet = new GlutenFree(), Disease = new Celiac(), Id = ++userID, FirstName = "ahmet", TcNo = "1111", Dietician = dietician[1] ,Password = "12345",UserName = "ahmet"});
+            _users.Add(new Patient { Diet = new WorldOfGreenery(), Disease = new Diabetes(), Id = ++userID, FirstName = "veli", TcNo = "1111", Dietician = dietician[2] ,Password = "12345",UserName = "veli"});
+            _users.Add(new Patient { Diet = new GlutenFree(), Disease = new Obese(), Id = ++userID, FirstName = "eren", TcNo = "1111", Dietician = dietician[0] ,Password = "12345",UserName = "eren"});
+            _users.Add(new Patient { Diet = new SeaProducts(), Disease = new Celiac(), Id = ++userID, FirstName = "ayşe", TcNo = "1111", Dietician = dietician[1] ,Password = "12345",UserName = "ayse"});
+            _users.Add(new Patient { Diet = new GlutenFree(), Disease = new Diabetes(), Id = ++userID, FirstName = "ali", TcNo = "1111", Dietician = dietician[2] ,Password = "12345",UserName = "ali2"});
         }
 
         private void createDiets()
@@ -103,10 +109,14 @@ namespace WebUI.Data
         }
         private void createDietician()
         {
-            _dieticians = new List<Dietician>();
-            _dieticians.Add(new Dietician{Id = ++dieticiansID});
-            _dieticians.Add(new Dietician { Id = ++dieticiansID });
-            _dieticians.Add(new Dietician { Id = ++dieticiansID });
+            _users.Add(new Dietician { Id = ++userID, City = "Burdur", Experience = 2, FirstName = "Beyza", LastName = "ERDEM", HospitalName = "Burdur Devlet Hastanesi", Image = "", TcNo = "123", UniversityName = "Manisa Celal Bayar Universitesi",Password = "12345",UserName = "DBeyza" });
+            _users.Add(new Dietician { Id = ++userID, City = "Sinop", Experience = 1, FirstName = "Muhammed Ali", LastName = "ÖZKAYA", HospitalName = "Sinop Devlet Hastanesi", Image = "", TcNo = "123", UniversityName = "Manisa Celal Bayar Universitesi",Password = "12345",UserName = "krai" });
+            _users.Add(new Dietician { Id = ++userID, City = "Tokat", Experience = 1, FirstName = "Salih", LastName = "ÖZKARA", HospitalName = "Tokat Devlet Hastanesi", Image = "", TcNo = "123", UniversityName = "Manisa Celal Bayar Universitesi",Password = "12345",UserName = "DSalih" });
+        }
+
+        private void creatAdmins()
+        {
+            _users.Add(new Admin{Id = ++userID,TcNo = "123",FirstName = "",LastName = "",Password = "12345",UserName = "admin"});
         }
     }
 
