@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebUI.Data;
 
 namespace WebUI.Controllers
 {
@@ -28,7 +29,12 @@ namespace WebUI.Controllers
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
-
+            //Session["sa"] = Claims.Patient;
+            //Claims a = (Claims)Session["sa"] ;
+            //if (a == Claims.Patient)
+            //{
+                
+            //}
             return View();
         }
 

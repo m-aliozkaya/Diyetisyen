@@ -42,7 +42,7 @@ namespace WebUI.Data
             creatAdmins();
         }
 
-        public void AddPatients(Patient patient)
+        public void AddPatient(Patient patient)
         {
             patient.Id = ++userID;
             _users.Add(patient);
@@ -80,15 +80,15 @@ namespace WebUI.Data
         private void createPatients()
         {
             List<Dietician> dietician = _users.Where(d => d.GetType() == typeof(Dietician)).Cast<Dietician>().ToList();
-            _users.Add(new Patient { Diet = new GlutenFree(), Disease = new Obese(), Id = ++userID, FirstName = "salih", TcNo = "1111", Dietician = dietician[0] ,Password = "12345",UserName = "salih"});
-            _users.Add(new Patient { Diet = new Mediterranean(), Disease = new Celiac(), Id = ++userID, FirstName = "ali", TcNo = "1111", Dietician = dietician[1], Password = "12345", UserName = "ali" });
-            _users.Add(new Patient { Diet = new SeaProducts(), Disease = new Diabetes(), Id = ++userID, FirstName = "beyza", TcNo = "1111", Dietician = dietician[2] ,Password = "12345",UserName = "beyza"});
-            _users.Add(new Patient { Diet = new WorldOfGreenery(), Disease = new Obese(), Id = ++userID, FirstName = "muhammed", TcNo = "1111", Dietician = dietician[0] ,Password = "12345",UserName = "muhammed"});
-            _users.Add(new Patient { Diet = new GlutenFree(), Disease = new Celiac(), Id = ++userID, FirstName = "ahmet", TcNo = "1111", Dietician = dietician[1] ,Password = "12345",UserName = "ahmet"});
-            _users.Add(new Patient { Diet = new WorldOfGreenery(), Disease = new Diabetes(), Id = ++userID, FirstName = "veli", TcNo = "1111", Dietician = dietician[2] ,Password = "12345",UserName = "veli"});
-            _users.Add(new Patient { Diet = new GlutenFree(), Disease = new Obese(), Id = ++userID, FirstName = "eren", TcNo = "1111", Dietician = dietician[0] ,Password = "12345",UserName = "eren"});
-            _users.Add(new Patient { Diet = new SeaProducts(), Disease = new Celiac(), Id = ++userID, FirstName = "ayşe", TcNo = "1111", Dietician = dietician[1] ,Password = "12345",UserName = "ayse"});
-            _users.Add(new Patient { Diet = new GlutenFree(), Disease = new Diabetes(), Id = ++userID, FirstName = "ali", TcNo = "1111", Dietician = dietician[2] ,Password = "12345",UserName = "ali2"});
+            _users.Add(new Patient { Diet = _diets[0], Disease = _diseases[0], Id = ++userID, FirstName = "salih", TcNo = "1111", Dietician = dietician[0] ,Password = "12345",UserName = "salih"});
+            _users.Add(new Patient { Diet = _diets[1], Disease = _diseases[1], Id = ++userID, FirstName = "ali", TcNo = "1111", Dietician = dietician[1], Password = "12345", UserName = "ali" });
+            _users.Add(new Patient { Diet = _diets[2], Disease = _diseases[2], Id = ++userID, FirstName = "beyza", TcNo = "1111", Dietician = dietician[2] ,Password = "12345",UserName = "beyza"});
+            _users.Add(new Patient { Diet = _diets[3], Disease = _diseases[0], Id = ++userID, FirstName = "muhammed", TcNo = "1111", Dietician = dietician[0] ,Password = "12345",UserName = "muhammed"});
+            _users.Add(new Patient { Diet = _diets[0], Disease = _diseases[1], Id = ++userID, FirstName = "ahmet", TcNo = "1111", Dietician = dietician[1] ,Password = "12345",UserName = "ahmet"});
+            _users.Add(new Patient { Diet = _diets[1], Disease = _diseases[2], Id = ++userID, FirstName = "veli", TcNo = "1111", Dietician = dietician[2] ,Password = "12345",UserName = "veli"});
+            _users.Add(new Patient { Diet = _diets[2], Disease = _diseases[0], Id = ++userID, FirstName = "eren", TcNo = "1111", Dietician = dietician[0] ,Password = "12345",UserName = "eren"});
+            _users.Add(new Patient { Diet = _diets[3], Disease = _diseases[1], Id = ++userID, FirstName = "ayşe", TcNo = "1111", Dietician = dietician[1] ,Password = "12345",UserName = "ayse"});
+            _users.Add(new Patient { Diet = _diets[0], Disease = _diseases[2], Id = ++userID, FirstName = "ali", TcNo = "1111", Dietician = dietician[2] ,Password = "12345",UserName = "ali2"});
         }
 
         private void createDiets()
