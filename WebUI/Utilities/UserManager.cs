@@ -12,14 +12,9 @@ namespace WebUI.Utilities
         {
             _users = InMemory.Memory.GetUsers();
         }
-        public Claims GetClaimByUserName(string userName)
+        private Claims GetClaimByUser(IUser user)
         {
-            var result = _users.FirstOrDefault(u => u.UserName == userName);
-            if (result == null)
-            {
-                return Claims.Null;
-            }
-            var type = result.GetType().Name;
+            var type = user.GetType().Name;
             foreach (var claim in typeof(Claims).GetFields())
             {
                 if (type == claim.Name)
@@ -36,14 +31,23 @@ namespace WebUI.Utilities
             return result;
         }
 
-        public bool Login(string userName, string password)
+        public Claims Login(string userName, string password)
         {
             var result = _users.FirstOrDefault(u => u.UserName == userName && u.Password == password);
             if (result == null)
             {
-                return false;
+                return Claims.Null;
             }
-            return true;
+            return GetClaimByUser(result);
+        }
+
+        public void AddPatient(Patient patient)
+        {
+            InMemory.Memory.AddPatient(patient);
+        }
+        public void AddDieticion(Dietician dietician)
+        {
+            InMemory.Memory.AddDieticion(dietician);
         }
     }
 }
