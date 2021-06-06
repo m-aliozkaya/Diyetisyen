@@ -37,9 +37,9 @@ namespace WebUI.Data
             _users = new List<IUser>();
             createDietician();
             createDiseases();
-            createPatients();
             createDiets();
             creatAdmins();
+            createPatients();
         }
 
         public void AddPatient(Patient patient)

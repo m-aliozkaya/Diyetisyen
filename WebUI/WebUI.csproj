@@ -152,6 +152,7 @@
     <Compile Include="Utilities\UserManager.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\css\custom.css" />
     <Content Include="Assets\css\login.css" />
     <Content Include="Assets\css\style.css" />
     <Content Include="Assets\fonts\font-awesome.min.css" />
@@ -159,6 +160,7 @@
     <Content Include="Assets\fonts\icomoon.svg" />
     <Content Include="Assets\fonts\iconmoon.css" />
     <Content Include="Assets\js\app.js" />
+    <Content Include="Assets\js\login.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
@@ -180,7 +182,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Admin\" />
-    <Folder Include="Views\Dietician\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\fonts\fontawesome-webfont.eot" />
@@ -191,7 +192,9 @@
     <Content Include="Assets\fonts\icomoon.ttf" />
     <Content Include="Assets\fonts\icomoon.woff" />
     <None Include="packages.config" />
-    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Shared\_SpecialLayout.cshtml" />
+    <Content Include="Views\Dietician\AddPatient.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

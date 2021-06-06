@@ -11,7 +11,14 @@ namespace WebUI.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            if (Session["userName"] != null)
+            {
+                return View(Session["userName"]);
+            }
+            else
+            {
+                return View();
+            }
         }
 
         public ActionResult Dietician()

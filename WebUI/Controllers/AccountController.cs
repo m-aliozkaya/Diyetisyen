@@ -3,23 +3,47 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebUI.Data;
 using WebUI.Models;
+using WebUI.Utilities;
 
 namespace WebUI.Controllers
 {
     public class AccountController : Controller
     {
         // GET: Account
+        private UserManager _userManager;
 
-        public ActionResult Index()
+        public AccountController()
+        {
+            _userManager = new UserManager();
+        }
+
+        public ActionResult Login()
         {
             return View();
-        }              
-        
+        }
+
+        [ValidateAntiForgeryToken]
         [HttpPost]
-        public ActionResult Index(LoginModel model)
+        public ActionResult Login(LoginModel model)
         {
-            return View();
+            Claims claim = _userManager.Login(model.UserName, model.Password);
+            
+            if (claim != Claims.Null)
+            {
+                Session["role"] = claim;
+                Session["userName"] = model.UserName;
+                return RedirectToAction("Index", "Home");
+            }
+
+            return View(model);
+        }
+
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            return RedirectToAction("Index", "Home");
         }
 
     }
