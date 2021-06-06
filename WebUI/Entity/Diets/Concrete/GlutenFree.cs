@@ -8,9 +8,10 @@ namespace WebUI.Entity.Diets.Concrete
 {
     public class GlutenFree : Diet
     {
+        private const int id = 1;
         private const string dietName = "Gluten Free";
         private const string dietDescription = "Gluten Free Açıklaması";
-        public GlutenFree() : base(dietName, dietDescription)
+        public GlutenFree() : base(dietName, dietDescription,id)
         {
 
         }

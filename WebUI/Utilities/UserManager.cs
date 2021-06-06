@@ -7,11 +7,7 @@ namespace WebUI.Utilities
 {
     public class UserManager
     {
-        private List<IUser> _users;
-        public UserManager()
-        {
-            _users = InMemory.Memory.GetUsers();
-        }
+      
         private Claims GetClaimByUser(IUser user)
         {
             var type = user.GetType().Name;
@@ -27,13 +23,13 @@ namespace WebUI.Utilities
 
         public IUser GetByUserName(string userName)
         {
-            var result = _users.FirstOrDefault(u => u.UserName == userName);
+            var result = InMemory.Memory.GetUsers().FirstOrDefault(u => u.UserName == userName);
             return result;
         }
 
         public Claims Login(string userName, string password)
         {
-            var result = _users.FirstOrDefault(u => u.UserName == userName && u.Password == password);
+            var result = InMemory.Memory.GetUsers().FirstOrDefault(u => u.UserName == userName && u.Password == password);
             if (result == null)
             {
                 return Claims.Null;
@@ -41,10 +37,6 @@ namespace WebUI.Utilities
             return GetClaimByUser(result);
         }
 
-        public void AddPatient(Patient patient)
-        {
-            InMemory.Memory.AddPatient(patient);
-        }
         public void AddDieticion(Dietician dietician)
         {
             InMemory.Memory.AddDieticion(dietician);

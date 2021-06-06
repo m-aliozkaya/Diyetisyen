@@ -8,10 +8,11 @@ namespace WebUI.Entity.Diets.Concrete
 {
     public class WorldOfGreenery: Diet
     {
+        private const int id = 4;
         private const string dietName = "World Of Greenery";
         private const string dietDescription = "World Of Greenery Açıklaması";
 
-        public WorldOfGreenery() : base(dietName, dietDescription)
+        public WorldOfGreenery() : base(dietName, dietDescription,id)
         {
 
         }

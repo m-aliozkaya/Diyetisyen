@@ -4,7 +4,6 @@
     {
         Admin,
         Dietician,
-        Patient,
         Null
     }
 }

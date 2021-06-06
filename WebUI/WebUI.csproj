@@ -138,7 +138,6 @@
     <Compile Include="Entity\Diseases\Concrete\Obese.cs" />
     <Compile Include="Entity\IUser.cs" />
     <Compile Include="Entity\Patient.cs" />
-    <Compile Include="Entity\User.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
