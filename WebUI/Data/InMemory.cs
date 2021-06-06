@@ -15,7 +15,7 @@ namespace WebUI.Data
         private int userID = 0;
         private int patientID = 0;
         private List<Diet> _diets;
-        private List<IDisease> _diseases;
+        private List<Disease> _diseases;
         private List<IUser> _users;
         private List<Patient> _patients;
 
@@ -74,7 +74,7 @@ namespace WebUI.Data
         {
             return _users.Where(u => u.GetType() == typeof(Dietician)).Cast<Dietician>().ToList();
         }
-        public List<IDisease> GetDiseases()
+        public List<Disease> GetDiseases()
         {
             return _diseases;
         }
@@ -105,7 +105,7 @@ namespace WebUI.Data
 
         private void createDiseases()
         {
-            _diseases = new List<IDisease>();
+            _diseases = new List<Disease>();
             _diseases.Add(new Celiac());
             _diseases.Add(new Obese());
             _diseases.Add(new Diabetes());

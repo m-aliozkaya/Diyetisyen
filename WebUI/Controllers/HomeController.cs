@@ -21,7 +21,7 @@ namespace WebUI.Controllers
             }
         }
 
-        public ActionResult Dietician()
+        public ActionResult Dieticians()
         {
             ViewBag.Message = "Your application description page.";
 

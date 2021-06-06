@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Web;
-using WebUI.Entity.Diets.Abstract;
-using WebUI.Entity.Diseases.Abstract;
 
-namespace WebUI.Entity
+namespace WebUI.Models
 {
-    public class Patient
+    public class PatientDietModel
     {
         public int Id { get; set; }
         [DisplayName("Adı")]
@@ -17,10 +15,10 @@ namespace WebUI.Entity
         public string LastName { get; set; }
         [DisplayName("TC Kimlik Numarası")]
         public string TcNo { get; set; }
-        [DisplayName("Hastalık")]
-        public Disease Disease { get; set; }
         [DisplayName("Diyet")]
-        public Diet Diet { get; set; }
-        public Dietician Dietician { get; set; }
+        public int DietId { get; set; }
+        [DisplayName("Hastalık")]
+        public int DiseaseId { get; set; }
+
     }
 }

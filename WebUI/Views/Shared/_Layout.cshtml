@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
 
     <title>Diatecian</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous" />
     <!-- Loading third party fonts -->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|" rel="stylesheet" type="text/css">
     <link href="~/Assets/fonts/font-awesome.min.css" rel="stylesheet" />
@@ -20,7 +24,7 @@
 </head>
 
 
-<body class="homepage mt-5">
+<body class="homepage">
 
     <div id="site-content">
         <header class="site-header">
@@ -34,9 +38,9 @@
                     <button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
                     <ul class="menu">
                         <li class="menu-item"><a href="/">Ana Sayfa</a></li>
-                        <li class="menu-item"><a href="/Home/About">Diyetisyenler</a></li>
-                        <li class="menu-item"><a href="recipe.html">Diyetler</a></li>
-                        <li class="menu-item"><a href="contact.html">İletişim</a></li>
+                        <li class="menu-item"><a href="/Home/Dieticians">Diyetisyenler</a></li>
+                        <li class="menu-item"><a href="/Home/Diets">Diyetler</a></li>
+                        <li class="menu-item"><a href="/Home/Contact">İletişim</a></li>
                     </ul> <!-- .menu -->
                 </div> <!-- .main-navigation -->
 
@@ -58,16 +62,14 @@
             <div class="container">
                 <i class="icon-cupcake logo"></i>
                 <nav class="footer-navigation">
-                    <a href="offer.html">Ana Sayfa</a>
-                    <a href="about.html">Diyetisyenler</a>
-                    <a href="recipe.html">Diyetler</a>
-                    <a href="contact.html">İletişim</a>
+                    <a href="/">Ana Sayfa</a>
+                    <a href="/Home/Diaticians">Diyetisyenler</a>
+                    <a href="/Home/Diets">Diyetler</a>
+                    <a href="/Home/Contact">İletişim</a>
                 </nav>
                 <div class="subscribe">
-                    <form action="#">
-                        <input type="text" placeholder="Enter your email to join newsletter...">
-                        <input type="submit" value="Subscribe">
-                    </form>
+                    <a href="/Admin/" class="btn btn-primary">Admin Girişi</a>
+                    <a href="/Dietician/" class="btn btn-primary">Diyetisyen Girişi</a>
                 </div>
                 <div class="social-links">
                     <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>

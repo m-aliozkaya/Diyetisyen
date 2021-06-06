@@ -1,0 +1,47 @@
+﻿@model IEnumerable<WebUI.Entity.Patient>
+
+@{
+    ViewBag.Title = "Hastalar";
+    Layout = "~/Views/Shared/_DieticianLayout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header bg-primary text-white">
+        <h4 class="mb-0">
+            Hasta Listesi
+        </h4>
+    </div>
+    <div class="card-body p-0 m-0">
+        <div class="table-responsive-md">
+            <table class="table table-striped table-info m-0">
+                <thead>
+                    <tr>
+                        <td>TC</td>
+                        <td>İsim</td>
+                        <td>Soyisim</td>
+                        <td>Hastalık</td>
+                        <td>Diyet</td>
+                        <td width="225px">İşlem</td>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.TcNo</td>
+                            <td>@item.FirstName</td>
+                            <td>@item.LastName</td>
+                            <td>@item.Disease.Name</td>
+                            <td>@item.Diet.Name</td>
+                            <td class="d-flex">
+                                <button class="btn btn-danger btn-sm mr-2">Diyet Değiştir</button>
+                                <a href="/Dietician/GetPatientReport/@item.Id" class="btn btn-primary btn-sm">Rapor al</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -12,7 +12,6 @@ namespace WebUI.Report
         public ReportManager(ReportBuilderBase reportBuilderBase)
         {
             _reportBuilderBase = reportBuilderBase;
-
         }
 
         public string Build()
@@ -20,13 +19,11 @@ namespace WebUI.Report
             return _reportBuilderBase.BuildOutput();
             
         }
+
         public string BuildUpsideDown()
         {
-            string output = "";
-            output += _reportBuilderBase.BuildDietInfo();
-            output += _reportBuilderBase.BuildPatientInfo();
-            return output;
-
+            return _reportBuilderBase.BuildUpsideDown();
         }
+
     }
 }
