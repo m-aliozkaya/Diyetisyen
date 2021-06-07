@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebUI.Data;
+using WebUI.Entity;
 
 namespace WebUI.Controllers
 {
@@ -11,7 +13,23 @@ namespace WebUI.Controllers
         // GET: Admin
         public ActionResult Index()
         {
-            return View();
+            if (Session["role"] != null)
+            {
+                Claims role = (Claims)Session["Role"];
+
+                if (role != Claims.Dietician)
+                {
+                    return RedirectToAction("Login", "Account", new { ReturnUrl = Request.Path });
+                }
+
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account", new { ReturnUrl = Request.Path });
+            }
+
+            List<Dietician> dieticianList = InMemory.Memory.GetDieticians();
+            return View(dieticianList);
         }
     }
 }

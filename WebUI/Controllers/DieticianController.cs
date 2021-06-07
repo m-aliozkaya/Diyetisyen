@@ -18,6 +18,24 @@ namespace WebUI.Controllers
         // GET: Dietician
         public ActionResult Index()
         {
+
+            if (Session["role"] != null)
+            {
+                Claims role = (Claims)Session["Role"];
+
+                if (role != Claims.Dietician)
+                {
+                    return RedirectToAction("Login", "Account", new {ReturnUrl = Request.Path });
+                }
+
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account", new { ReturnUrl = Request.Path });
+            }
+
+
+
             List<Patient> patientList = InMemory.Memory.GetPatients();
             return View(patientList);
         }

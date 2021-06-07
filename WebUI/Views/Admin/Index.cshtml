@@ -1,0 +1,46 @@
+﻿@model IEnumerable<WebUI.Entity.Dietician>
+
+@{
+    ViewBag.Title = "Admin Paneli";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header bg-primary text-white">
+        <h4 class="mb-0">
+            Diyetisyen Listesi
+        </h4>
+    </div>
+    <div class="card-body p-0 m-0">
+        <div class="table-responsive-md">
+            <table class="table table-striped table-info m-0">
+                <thead>
+                    <tr>
+                        <td>TC</td>
+                        <td>İsim</td>
+                        <td>Soyisim</td>
+                        <td>Şehir</td>
+                        <td>Hastane</td>
+                        <td>Üniversite</td>
+                        <td>Deneyim</td>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>@item.TcNo</td>
+                        <td>@item.FirstName</td>
+                        <td>@item.LastName</td>
+                        <td>@item.City</td>
+                        <td>@item.HospitalName</td>
+                        <td>@item.UniversityName</td>
+                        <td>@item.Experience Yıl</td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

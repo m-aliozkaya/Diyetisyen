@@ -26,15 +26,25 @@ namespace WebUI.Controllers
 
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public ActionResult Login(LoginModel model)
+        public ActionResult Login(LoginModel model, string ReturnUrl)
         {
-            Claims claim = _userManager.Login(model.UserName, model.Password);
-            
-            if (claim != Claims.Null)
+
+            if (ModelState.IsValid)
             {
-                Session["role"] = claim;
-                Session["userName"] = model.UserName;
-                return RedirectToAction("Index", "Home");
+                Claims claim = _userManager.Login(model.UserName, model.Password);
+
+                if (claim != Claims.Null)
+                {
+                    Session["role"] = claim;
+                    Session["userName"] = model.UserName;
+
+                    if (!String.IsNullOrEmpty(ReturnUrl))
+                    {
+                        return Redirect(ReturnUrl);
+                    }
+
+                    return RedirectToAction("Index", "Home");
+                }
             }
 
             return View(model);
