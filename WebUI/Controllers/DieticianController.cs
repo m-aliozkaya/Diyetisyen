@@ -34,8 +34,6 @@ namespace WebUI.Controllers
                 return RedirectToAction("Login", "Account", new { ReturnUrl = Request.Path });
             }
 
-
-
             List<Patient> patientList = InMemory.Memory.GetPatients();
             return View(patientList);
         }

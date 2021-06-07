@@ -10,6 +10,7 @@
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
           crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="~/Assets/fonts/iconmoon.css" rel="stylesheet" />
 
 
@@ -23,16 +24,19 @@
             <div class="main-navigation pull-right">
                 <button id="menu-button" type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
                 <ul class="menu">
-                    <li class="menu-item"><a href="/Dietician/AddPatient">Hasta Ekle</a></li>
-                    <li class="menu-item"><a href="/Dietician">Hastaları Görüntüle</a></li>
+                    <li class="menu-item"><a href="/Admin/AddDietician">Diyetisyen Ekle</a></li>
+                    <li class="menu-item"><a href="/Admin">Diyetisyenleri Görüntüle</a></li>
                     <li class="menu-item"><a href="/Account/Logout">Çıkış Yap</a></li>
                 </ul> <!-- .menu -->
             </div> <!-- .main-navigation -->
-
+            <div id="profile">
+                <i class="fas fa-user-circle"></i>
+                @Session["userName"]
+            </div>
             <div class="mobile-navigation"></div>
         </div>
     </header>
-    <div class="container p-3 pt-5">
+    <div class="container p-3 pt-5" style="padding-top:5rem !important">
         @RenderBody()
     </div>
     <footer class="site-footer">

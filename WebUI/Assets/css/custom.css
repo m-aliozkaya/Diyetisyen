@@ -18,6 +18,14 @@ audio, canvas, video {
         height: 0;
     }
 
+#profile {
+    position: absolute;
+    top: 25px;
+    left: 50px;
+    z-index: 100;
+    font-size: 20px;
+}
+
 [hidden], template {
     display: none;
 }

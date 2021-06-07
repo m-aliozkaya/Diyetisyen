@@ -44,7 +44,11 @@ namespace WebUI.Controllers
                     }
 
                     return RedirectToAction("Index", "Home");
+                } else
+                {
+                    ModelState.AddModelError("", "Kullanıcı Adı veya Şifre Yanlış");
                 }
+
             }
 
             return View(model);

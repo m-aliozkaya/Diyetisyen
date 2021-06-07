@@ -18,13 +18,3 @@ $(document).on("mousemove", function (event) {
     });
 });
 
-// validation
-
-
-$('.btn').click(function () {
-    $('form').addClass('wrong-entry');
-    setTimeout(function () {
-        $('form').removeClass('wrong-entry');
-    }, 3000);
-});
-

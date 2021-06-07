@@ -17,7 +17,7 @@ namespace WebUI.Controllers
             {
                 Claims role = (Claims)Session["Role"];
 
-                if (role != Claims.Dietician)
+                if (role != Claims.Admin)
                 {
                     return RedirectToAction("Login", "Account", new { ReturnUrl = Request.Path });
                 }
