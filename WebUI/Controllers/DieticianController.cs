@@ -100,10 +100,34 @@ namespace WebUI.Controllers
             return View();
         }
 
-        public ActionResult ChangePatientDiet()
+        public ActionResult ChangePatientDiet(int id)
         {
-            ViewBag.DietId = new SelectList(InMemory.Memory.GetDiets(), "Id", "Name");
-            return View();
+            Patient patient = InMemory.Memory.GetPatients().Where(p => p.Id == id).FirstOrDefault();
+            ChangeDietModel model = new ChangeDietModel()
+            {
+                PatientId = patient.Id,
+                DietId = patient.Diet.Id,
+                DiseaseName = patient.Disease.Name,
+                PatientName = patient.FirstName + " " + patient.LastName
+            };
+            ViewBag.DietId = new SelectList(InMemory.Memory.GetDiets(), "Id", "Name", model.DietId);
+            return View(model);
+        }
+
+        [ValidateAntiForgeryToken]
+        [HttpPost]
+        public ActionResult ChangePatientDiet(ChangeDietModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                Diet diet = InMemory.Memory.GetDiets().Where(d => d.Id == model.DietId).FirstOrDefault();
+                Patient patient = InMemory.Memory.GetPatients().Where(p => p.Id == model.PatientId).FirstOrDefault();
+                patient.Diet = diet;
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.DietId = new SelectList(InMemory.Memory.GetDiets(), "Id", "Name", model.DietId);
+            return View(model);
         }
 
     }

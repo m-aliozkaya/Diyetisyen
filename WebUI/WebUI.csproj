@@ -169,6 +169,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ChangeDietModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\PatientDietModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -227,6 +228,7 @@
     <Content Include="Views\Home\Diets.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Dietician\ChangePatientDiet.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
