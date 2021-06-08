@@ -189,6 +189,11 @@
     <Content Include="Assets\fonts\fontawesome-webfont.svg" />
     <Content Include="Assets\fonts\icomoon.svg" />
     <Content Include="Assets\fonts\iconmoon.css" />
+    <Content Include="Assets\img\hd_diyet-sitesi-bulutweb11.jpg" />
+    <Content Include="Assets\img\hd_diyet-sitesi-bulutweb22.jpg" />
+    <Content Include="Assets\img\hd_diyet-sitesi-bulutweb33.jpg" />
+    <Content Include="Assets\img\img_avatar1.png" />
+    <Content Include="Assets\img\img_avatar5.png" />
     <Content Include="Assets\js\app.js" />
     <Content Include="Assets\js\login.js" />
     <Content Include="favicon.ico" />
