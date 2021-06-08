@@ -76,6 +76,15 @@ namespace WebUI.Controllers
 
         public ActionResult GetPatientReport(int id)
         {
+
+            ViewBag.PatientId = id;
+            return View();
+        }       
+        
+        [ValidateAntiForgeryToken]
+        [HttpPost]
+        public ActionResult GetPatientReport(int id, string submit)
+        {
             Patient patient = InMemory.Memory.GetPatients().Where(p => p.Id == id).SingleOrDefault();
             PatientReport patientReport = new PatientReport()
             {
@@ -92,9 +101,23 @@ namespace WebUI.Controllers
                 PatientReport = patientReport
             };
 
-            ReportManager reportManager = new ReportManager(new HtmlReportBuilder(reportInfo));
-            ViewBag.result = reportManager.Build();
+            ReportManager reportManager;
 
+            switch (submit)
+            {
+                case "HTML Rapor Al":
+                    reportManager = new ReportManager(new HtmlReportBuilder(reportInfo));
+                    break;
+                case "JSON Rapor Al":
+                    reportManager = new ReportManager(new JsonReportBuilder(reportInfo));
+                    break;
+                default:
+                    reportManager = new ReportManager(new HtmlReportBuilder(reportInfo));
+                    break;
+            }
+
+            ViewBag.PatientId = id;
+            ViewBag.result = reportManager.Build();
             return View();
         }
 

@@ -53,6 +53,14 @@ q:before, q:after { content: ''; content: none; }
 
 small { font-size: 80%; }
 
+#loginButtons {
+    position: absolute;
+    top: 25px;
+    right: 50px;
+    z-index: 100;
+    font-size: 20px;
+}
+
 sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
 
 sup { top: -0.5em; }
@@ -118,7 +126,7 @@ p { margin-top: 0; }
 .feature.color-orange .feature-icon { background-color: #fbab18; }
 .feature.color-orange .feature-title { color: #fbab18; }
 
-.map { height: 300px; border-radius: 20px; overflow: hidden; margin-bottom: 30px; }
+.map {border-radius: 20px; overflow: hidden; margin-bottom: 30px; }
 
 .contact-detail { border-radius: 30px; padding: 20px; border: 3px solid #e1dece; text-align: center; margin-bottom: 30px; }
 .contact-detail img { vertical-align: middle; margin-right: 5px; }
