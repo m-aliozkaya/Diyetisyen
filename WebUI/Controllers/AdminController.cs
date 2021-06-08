@@ -31,5 +31,25 @@ namespace WebUI.Controllers
             List<Dietician> dieticianList = InMemory.Memory.GetDieticians();
             return View(dieticianList);
         }
+
+        public ActionResult AddDietician()
+        {
+            return View();
+        }
+
+        [ValidateAntiForgeryToken]
+        [HttpPost]
+        public ActionResult AddDietician(Dietician model)
+        {
+
+            if (ModelState.IsValid)
+            {
+                InMemory.Memory.AddDietician(model);
+
+                return RedirectToAction("/");
+            }
+
+            return View(model);
+        }
     }
 }

@@ -39,7 +39,7 @@ namespace WebUI.Utilities
 
         public void AddDieticion(Dietician dietician)
         {
-            InMemory.Memory.AddDieticion(dietician);
+            InMemory.Memory.AddDietician(dietician);
         }
     }
 }

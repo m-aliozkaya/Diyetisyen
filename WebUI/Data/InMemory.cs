@@ -50,7 +50,7 @@ namespace WebUI.Data
             _patients.Add(patient);
         }
 
-        public void AddDieticion(Dietician dietician)
+        public void AddDietician(Dietician dietician)
         {
             dietician.Id = ++userID;
             _users.Add(dietician);
