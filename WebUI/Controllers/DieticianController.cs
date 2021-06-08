@@ -34,7 +34,7 @@ namespace WebUI.Controllers
                 return RedirectToAction("Login", "Account", new { ReturnUrl = Request.Path });
             }
 
-            List<Patient> patientList = InMemory.Memory.GetPatients();
+            List<Patient> patientList = InMemory.Memory.GetByDieticianUserNamePatients(Session["userName"].ToString());
             return View(patientList);
         }
 

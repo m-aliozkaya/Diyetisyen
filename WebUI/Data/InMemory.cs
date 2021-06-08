@@ -64,7 +64,10 @@ namespace WebUI.Data
         {
             return _patients;
         }
-
+        public List<Patient> GetByDieticianUserNamePatients(string userName)
+        {
+            return _patients.Where(p=>p.Dietician.UserName==userName).ToList();
+        }
         public List<Diet> GetDiets()
         {
             return _diets;
