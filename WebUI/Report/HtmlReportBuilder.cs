@@ -26,7 +26,7 @@ namespace WebUI.Report
             dt.Rows.Add(_reportInfo.PatientReport.TcNo
                 , _reportInfo.PatientReport.PatientName
                 , _reportInfo.PatientReport.DieticianTcNo
-                , _reportInfo.PatientReport.DiseaseName
+                , _reportInfo.PatientReport.DieaticianName
                 , _reportInfo.PatientReport.DiseaseName
                 );
 
