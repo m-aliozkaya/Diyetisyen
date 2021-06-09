@@ -92,7 +92,7 @@ namespace WebUI.Report
                 sb.Append("<tr>");
                 foreach (DataColumn column in dt.Columns)
                 {
-                    sb.Append("<td style='width:100px;border: 1px solid #ccc'>" + row[column.ColumnName].ToString() + "</td>");
+                    sb.Append("<td style='max-width:300px;min-width:100px ;border: 1px solid #ccc'>" + row[column.ColumnName].ToString() + "</td>");
                 }
                 sb.Append("</tr>");
             }

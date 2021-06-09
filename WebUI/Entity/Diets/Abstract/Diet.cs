@@ -14,7 +14,7 @@ namespace WebUI.Entity.Diets.Abstract
         public string Name { get;}
         [JsonProperty("DiyetAciklamasi")]
         public string Description { get;}
-
+        [JsonIgnore]
         public string Image { get;}
         public Diet(string name, string description, int id,string image)
         {
