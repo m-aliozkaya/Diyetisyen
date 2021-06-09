@@ -1,4 +1,14 @@
 
+## Proje Takımı
+
+
+👨🏼‍💻 **Muhammed Ali ÖZKAYA → 192802055**
+
+👨🏼‍💻 **Salih ÖZKARA → 192802010**
+
+👩‍💻 **Beyza Erdem → 192803045**
+
+---
 
 ## 🎯 Projenin Amacı
 
