@@ -1,5 +1,5 @@
 
-## Proje Takımı
+## 💎 Proje Takımı
 
 
 👨🏼‍💻 **Muhammed Ali ÖZKAYA → 192802055**
