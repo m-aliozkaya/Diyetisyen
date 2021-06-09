@@ -57,6 +57,10 @@ q:before, q:after { content: ''; content: none; }
     right : 50px
 }
 
+#map{
+    margin:100px 0;
+}
+
 small { font-size: 80%; }
 
 #loginButtons {
@@ -131,8 +135,6 @@ p { margin-top: 0; }
 .feature.color-pink .feature-title { color: #f16a54; }
 .feature.color-orange .feature-icon { background-color: #fbab18; }
 .feature.color-orange .feature-title { color: #fbab18; }
-
-.map {border-radius: 20px; overflow: hidden; margin-bottom: 30px; }
 
 .contact-detail { border-radius: 30px; padding: 20px; border: 3px solid #e1dece; text-align: center; margin-bottom: 30px; }
 .contact-detail img { vertical-align: middle; margin-right: 5px; }
