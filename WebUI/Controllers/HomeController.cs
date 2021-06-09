@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebUI.Data;
+using WebUI.Entity;
+using WebUI.Entity.Diets.Abstract;
 
 namespace WebUI.Controllers
 {
@@ -11,37 +13,23 @@ namespace WebUI.Controllers
     {
         public ActionResult Index()
         {
-            if (Session["userName"] != null)
-            {
-                return View(Session["userName"]);
-            }
-            else
-            {
-                return View();
-            }
+                return View();         
         }
 
         public ActionResult Dieticians()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            List<Dietician> dieticianList = InMemory.Memory.GetDieticians();
+            return View(dieticianList);
         }
 
         public ActionResult Diets()
         {
-            return View();
+            List<Diet> dietList = InMemory.Memory.GetDiets();
+            return View(dietList);
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
-            //Session["sa"] = Claims.Patient;
-            //Claims a = (Claims)Session["sa"] ;
-            //if (a == Claims.Patient)
-            //{
-                
-            //}
             return View();
         }
 

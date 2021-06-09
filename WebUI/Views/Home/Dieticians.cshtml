@@ -1,29 +1,30 @@
-﻿
-@{
-    ViewBag.Title = "Dietician";
-}
+﻿@model IEnumerable<WebUI.Entity.Dietician>
 
 <main class="main-content">
 
-    <div class="author-bio">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-5">
-                    <figure class="profile-picture">
-                        <img src="~/Images/diyetisyenbir.jpg" alt="">
-                    </figure>
-                </div>
-                <div class="col-md-6 col-md-offset-1">
-                    <h2>Merhaba <br> Ben Deniz Kaya.</h2>
-                    <ul class="person-detail">
-                        <li><span class="icon"><img src="~/Images/icon-baby.png"></span>Born: <strong>08.05.1985</strong></li>
-                        <li><span class="icon"><img src="~/Images/icon-map-marker.png"></span>Şehir: <strong>İstanbul</strong></li>
-                        <li><span class="icon"><img src="~/Images/icon-clock.png"></span>Deneyim: <strong>6 yıl</strong></li>
-                    </ul>
+    @foreach (var item in Model)
+    {
+        <div class="author-bio">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5">
+                        <figure class="profile-picture">
+                            <img src="~/Images/diyetisyenbir.jpg" alt="@item.UserName">
+                        </figure>
+                    </div>
+                    <div class="col-md-6 col-md-offset-1">
+                        <h2>@item.FirstName @item.LastName</h2>
+                        <ul class="fa-ul">
+                            <li><span class="fa-li"><i class="fas fa-user-graduate fa-lg"></i></span> <strong>Mezun Olduğu Üniversite: </strong>@item.UniversityName</li>
+                            <li><span class="fa-li"><i class="fas fa-map-marker-alt fa-lg"></i></span><strong>Şehir: </strong>@item.City</li>
+                            <li><span class="fa-li"><i class="fas fa-h-square fa-lg"></i></span> <strong>Hastane Adı: </strong>@item.HospitalName</li>
+                            <li><span class="fa-li"><i class="fas fa-user-md fa-lg"></i></span><strong>Deneyim: </strong>@item.Experience</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    }
 
 
     <div class="author-bio">
@@ -35,10 +36,12 @@
                     </figure>
                 </div>
                 <div class="col-md-6 col-md-offset-1">
-                    <h2>Merhaba <br> Ben Deniz Kaya.</h2>
+                    <h2> Berrin Yılmaz</h2>
                     <ul class="person-detail">
-                        <li><span class="icon"><img src="~/Images/icon-baby.png"></span>Born: <strong>07.03.1994</strong></li>
+                        <li><span class="icon"><img src="~/Images/icon-baby.png"></span>Yaş: <strong>25</strong></li>
+                        <li><span class="icon"><img src="~/Images/icon-map-marker.png"></span>Mezun Olduğu Üniversite:  <strong>Bilkent Üniversitesi</strong></li>
                         <li><span class="icon"><img src="~/Images/icon-map-marker.png"></span>Şehir: <strong>Ankara</strong></li>
+                        <li><span class="icon"><img src="~/Images/icon-map-marker.png"></span>Hastane Adı: <strong>Kızılay Hastanesi</strong></li>
                         <li><span class="icon"><img src="~/Images/icon-clock.png"></span>Deneyim: <strong>3 yıl</strong></li>
                     </ul>
                 </div>
