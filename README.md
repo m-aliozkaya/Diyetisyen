@@ -1,6 +1,6 @@
 
 
-## 🤝 Projenin Amacı
+## 🎯 Projenin Amacı
 
 
 - Projenin temel amacı Yazılım Mimarisi dersinde öğrenmiş olduğumuz tasarım desenlerinden birkaçını uygulamaya dökmektir. Bu doğrultuda istenen şey ise diyetisyen, diyet, hastalık, hasta ve rapor kavramlarını kullanarak istenilen gereksinimleri karşılayan esnek bir sistem kurmaktır.
