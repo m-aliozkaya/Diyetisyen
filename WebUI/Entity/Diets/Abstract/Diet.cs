@@ -15,11 +15,13 @@ namespace WebUI.Entity.Diets.Abstract
         [JsonProperty("DiyetAciklamasi")]
         public string Description { get;}
 
-        public Diet(string name, string description, int id)
+        public string Image { get;}
+        public Diet(string name, string description, int id,string image)
         {
             Name = name;
             Description = description;
             Id = id;
+            Image = image;
         }
 
     }
