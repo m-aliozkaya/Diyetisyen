@@ -3,8 +3,9 @@
 ## 🤝 Projenin Amacı
 
 
-Öncelikle projenin temel amacı Yazılım Mimarisi dersinde öğrenmiş olduğumuz tasarım desenlerinden birkaçını uygulamaya dökmektir. Bu doğrultuda istenen şey ise diyetisyen, diyet, hastalık, hasta ve rapor kavramlarını kullanarak istenilen gereksinimleri karşılayan esnek bir sistem kurmaktır.
+- Projenin temel amacı Yazılım Mimarisi dersinde öğrenmiş olduğumuz tasarım desenlerinden birkaçını uygulamaya dökmektir. Bu doğrultuda istenen şey ise diyetisyen, diyet, hastalık, hasta ve rapor kavramlarını kullanarak istenilen gereksinimleri karşılayan esnek bir sistem kurmaktır.
 
+---
 
 ## 🤝 Projenin Kapsamı
 
@@ -14,7 +15,7 @@
 - Diyetisyenler panel üzerinden hasta, adminler panel üzerinden diyetisyen ekleyebilecek
 - Sistem mimarisinde diyet ve hastalık çeşitleri arttırılabilecek
 
-
+---
 
 ## 🖊️ Gereksinimler
 
@@ -25,7 +26,7 @@
 - İstenirse diyet ve hasta bilgilerinin rapordaki sırasının değiştirilebilmesi
 - Html, Json formatlarında rapor alınabilmesi
 
-
+---
 
 ## 🐱‍💻 Kullanılan Teknolojiler
 
@@ -36,7 +37,7 @@
 - Jquery
 
 
-
+---
 ## 📈 Başarı Ölçütleri
 
 
