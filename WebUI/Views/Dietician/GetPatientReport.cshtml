@@ -9,13 +9,25 @@
 {
     @Html.AntiForgeryToken()
     <input type="hidden" value="@ViewBag.PatientId" name="id" />
+
+    <!-- Default unchecked -->
+    <div class="custom-control custom-radio">
+        <input type="radio" class="custom-control-input" id="patientUp" name="whichUp" checked value="patientUp">
+        <label class="custom-control-label" for="patientUp">Hasta Bilgisi Üstte</label>
+    </div>
+
+    <!-- Default checked -->
+    <div class="custom-control custom-radio mb-3">
+        <input type="radio" class="custom-control-input" id="dietUp" name="whichUp" value="dietUp">
+        <label class="custom-control-label" for="dietUp">Diyet Bilgisi Üstte</label>
+    </div>
+
     <input name="submit" type="submit" class="btn btn-danger btn-sm mr-2 font-weight-bold" value="HTML Rapor Al">
     <input name="submit" type="submit" class="btn btn-danger btn-sm mr-2 font-weight-bold" value="JSON Rapor Al">
 }
 
 <pre class="mt-4">
 @Html.Raw(ViewBag.Result)
-
 <!-- Eğer formatsız halini yani direk kodu görmek isterseniz -->
  <!-- @ViewBag.Result --> 
 </pre>

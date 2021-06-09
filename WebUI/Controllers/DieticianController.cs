@@ -83,7 +83,7 @@ namespace WebUI.Controllers
         
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public ActionResult GetPatientReport(int id, string submit)
+        public ActionResult GetPatientReport(int id, string submit, string whichUp)
         {
             Patient patient = InMemory.Memory.GetPatients().Where(p => p.Id == id).SingleOrDefault();
             PatientReport patientReport = new PatientReport()
@@ -117,7 +117,19 @@ namespace WebUI.Controllers
             }
 
             ViewBag.PatientId = id;
-            ViewBag.result = reportManager.Build();
+
+            switch (whichUp)
+            {
+                case "patientUp":
+                    ViewBag.result = reportManager.Build();
+                    break;
+                case "dietUp":
+                    ViewBag.result = reportManager.BuildUpsideDown();
+                    break;
+                default:
+                    break;
+            }
+         
             return View();
         }
 
