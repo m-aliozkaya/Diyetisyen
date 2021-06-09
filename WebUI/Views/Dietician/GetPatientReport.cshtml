@@ -1,8 +1,21 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "GetPatientReport";
     Layout = "~/Views/Shared/_DieticianLayout.cshtml";
 }
 
 <h2>Hasta Raporu</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <input type="hidden" value="@ViewBag.PatientId" name="id" />
+    <input name="submit" type="submit" class="btn btn-danger btn-sm mr-2 font-weight-bold" value="HTML Rapor Al">
+    <input name="submit" type="submit" class="btn btn-danger btn-sm mr-2 font-weight-bold" value="JSON Rapor Al">
+}
+
+<pre class="mt-4">
 @Html.Raw(ViewBag.Result)
+
+<!-- Eğer formatsız halini yani direk kodu görmek isterseniz -->
+ <!-- @ViewBag.Result --> 
+</pre>
